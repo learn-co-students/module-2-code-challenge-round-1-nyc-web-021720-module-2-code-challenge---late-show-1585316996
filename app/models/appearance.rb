@@ -6,4 +6,8 @@ class Appearance < ApplicationRecord
     validates :guest_id, uniqueness: { scope: :episode_id,
     message: "should only appear on a given Episode once" }
 
+    def self.sortappearances(guest)
+        guest.appearances.sort_by {|appearance| -appearance.rating}
+    end
+
 end
