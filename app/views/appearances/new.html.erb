@@ -1,8 +1,10 @@
 <h1> New Appearance </h1>
     <% if @appearance.errors.any? %>
         <p>There are errors</p>
-        <%= @appearance.errors.full_message.each do |message| %>
-            <%= message %>
+        <ul>
+         <% @appearance.errors.full_messages.each do |message| %>
+            <li> <%= message %></li>
+        </ul>
         <% end %>
     <% end %>
 

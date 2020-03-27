@@ -1,3 +1,9 @@
 <h1>Guest Show Page</h1>
 
 <%= @guest.name %>
+
+<% @guest.appearances.each do |appearance| %>
+  <ul>
+    <li><b>Date:</b> <%= link_to appearance.episode.date, episode_path(appearance.episode) %> <b>Rating:</b> <%=appearance.rating%></li>
+  </ul>
+<% end %>
