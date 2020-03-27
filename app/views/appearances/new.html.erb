@@ -1,0 +1,16 @@
+<%= form_for @appearance do |f|%>
+
+<%=f.label 'Episode'%>
+<%=f.collection_select :episode_id, Episode.all, :id, :date%>
+<%=f.label 'Guest'%>
+<%=f.collection_select :guest_id, Guest.all, :id, :name%>
+<%=f.label 'rating'%>
+<%=f.number_field :rating %>
+<%=f.submit%>
+<%end%>
+
+<% if !!flash[:errors] %>
+<% flash[:errors].each do |e| %>
+<p><%= e %></p>
+<% end %>
+<% end %>
