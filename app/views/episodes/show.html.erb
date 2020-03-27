@@ -1,11 +1,19 @@
 <h1>Episode Show Page</h1>
 
+Average Rating for episode appearances: <b><%= Episode.avgrating(@episode) %><br><br></b>
 
 <%= @episode.date %><br>
 <% @episode.guests.each do |guest| %>
     <ul>
-    <li><%= link_to guest.name, guest_path(guest) %></li>
+    <li><%= link_to guest.name, guest_path(guest) %> </li>
     </ul>
 <% end %>
+
+<% @episode.appearances.each do |appearance| %>
+    <ul>
+      <li><b>Guest:</b> <%= link_to appearance.guest.name, guest_path(appearance.guest) %> <b>Rating:</b> <%=appearance.rating%></li>
+    </ul>
+  <% end %>
+  
 
 
